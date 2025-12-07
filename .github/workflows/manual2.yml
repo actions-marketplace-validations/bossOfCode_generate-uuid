@@ -33,16 +33,16 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Checkout repo
-      uses: actions/checkout@v4.1.7
+      uses: actions/checkout@v6.0.0
 
     - name: setup python
-      uses: actions/setup-python@v5.3.0
+      uses: actions/setup-python@v6.1.0
       with:
         python-version: 3.12.5
 
     - name: test uuid generator
       id: uuid
-      uses: bossOfCode/generate-uuid@v1.1
+      uses: bossOfCode/generate-uuid@v1.3
       with:
         version: ${{ inputs.version }}
 
