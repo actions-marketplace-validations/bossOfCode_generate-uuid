@@ -47,7 +47,7 @@ jobs:
       id: uuid
       uses: bossOfCode/generate-uuid@v1.3
       with:
-        version: ${{ inputs.version }}
+        version: ${{ inputs.version == '' && '4' || inputs.version }}
 
     - name: Print UUID
       run: echo ${{ steps.uuid.outputs.uuid }}
