@@ -23,7 +23,7 @@ Generates a random UUID using the `uuid` module in python.
 ## Usage
 
 ```yaml
-- uses: bossOfCode/generate-uuid@v1.3.1 #Use current version
+- uses: bossOfCode/generate-uuid@v1.3.2 #Use current version
   with: 
     - version: 5 #v1, 3, 4, 5, and 7 are avaliable
 ```
