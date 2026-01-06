@@ -16,10 +16,10 @@ def insert(str1, str2, index):
 def print_in_os(argument):
     "print in both terminal and action logs"
     print(argument)
-    os.system(argument)
+    os.system(f"echo {argument}")
 
 
-print_in_os("echo Version 7")
+print_in_os("Version 7")
 
 UUID = ''
 ADD = ''
@@ -41,5 +41,5 @@ UUID = UUID + ADD + '-'
 ADD = os.urandom(6).hex()
 UUID = UUID + ADD
 
-print_in_os(f"echo 'uuid={UUID}' >> $GITHUB_OUTPUT")
-print_in_os("echo 'safe=safe' >> $GITHUB_OUTPUT")
+os.system(f"echo 'uuid={UUID}' >> $GITHUB_OUTPUT")
+os.system("echo 'safe=safe' >> $GITHUB_OUTPUT")
