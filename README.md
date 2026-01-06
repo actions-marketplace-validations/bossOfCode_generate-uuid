@@ -23,10 +23,6 @@ Generates a random UUID using the `uuid` module in python.
 ## Usage
 
 ```yaml
-- uses: actions/checkout@v6.0.0
-- uses: actions/setup-python@v6.0.0
-  with:
-    python-version: 3.16 #any version above 3.9 will do
 - uses: bossOfCode/generate-uuid@v1.3.1 #Use current version
   with: 
     - version: 5 #v1, 3, 4, 5, and 7 are avaliable
