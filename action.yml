@@ -32,9 +32,14 @@ runs:
       shell: bash
 
     - name: checkout this repo
-      uses: actions/checkout@v6.0.0
+      uses: actions/checkout@v6.0.1
       with:
         repository: bossOfCode/generate-uuid
+
+    - name: setup python
+      uses: actions/setup-python@v6
+      with:
+        version: '3.9'
 
     - name: Generate UUID
       id: generate

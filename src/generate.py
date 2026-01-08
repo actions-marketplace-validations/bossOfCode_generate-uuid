@@ -15,7 +15,7 @@ namespaces = ["DNS", "URL", "OID", "X500"]
 def print_in_os(argument):
     "print in both terminal and action logs"
     print(f"{argument}")
-    os.system(f"{argument}")
+    os.system(f"echo {argument}")
 
 print_in_os(f"Version: {VERSION}")
 
@@ -33,8 +33,8 @@ OUTPUTSTR = str(OUTPUT)
 FINAL = uuid.UUID(OUTPUTSTR)
 SAFE = uuid.SafeUUID
 
-print_in_os(f"echo 'uuid={FINAL}' >> $GITHUB_OUTPUT")
-print_in_os(f"echo 'safe={SAFE}' >> $GITHUB_OUTPUT")
+os.system(f"echo 'uuid={FINAL}' >> $GITHUB_OUTPUT")
+os.system(f"echo 'safe={SAFE}' >> $GITHUB_OUTPUT")
 
 if SAFE == "unsafe":
     print_in_os("::warning title=UNSAFE::Your UUID may be unsafe for public use because" +
