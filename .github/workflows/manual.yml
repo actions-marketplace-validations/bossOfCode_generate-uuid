@@ -44,6 +44,6 @@ jobs:
         python-version: 3.12.5
 
     - name: test uuid generator
-      uses: bossOfCode/generate-uuid@v1.3
+      uses: bossOfCode/generate-uuid@v1.4
       with:
         version: ${{ inputs.version == '' && '4' || inputs.version }}
