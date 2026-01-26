@@ -32,7 +32,7 @@ runs:
       shell: bash
 
     - name: checkout this repo
-      uses: actions/checkout@v6.0.1
+      uses: actions/checkout@v6.0.2
       with:
         repository: bossOfCode/generate-uuid
 
