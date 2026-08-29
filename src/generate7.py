@@ -1,25 +1,27 @@
 """import"""
+import secrets
 import os
+import random
 import time
+import warnings
 
-OUTPUT = ''
+# i refuse to use uuid.uuid7() lol
 
-def insert(str1, str2, index):
-    "insert text at index"
-    original = str1
-    new = str2
-    pos = index
+if os.environ.get("INPUT_NAMESPACE"):
+    warnings.warn("No namespace or name needed for this version",
+                  UserWarning)
+    print("::warning:: No namespace or name needed for this version")
 
-    global OUTPUT
-    OUTPUT = original[:pos] + new + original[pos:]
+def insert(og: str,
+           ins: str,
+           idx: int) -> str:
+    """
+    Insert a string into a string
+    at a certain index.
+    """
+    return og[:idx] + ins + og[idx:]
 
-def print_in_os(argument):
-    "print in both terminal and action logs"
-    print(argument)
-    os.system(f"echo {argument}")
-
-
-print_in_os("Version 7")
+print("Version: 7")
 
 UUID = ''
 ADD = ''
@@ -29,16 +31,17 @@ EPOCHMILLI = format(EPOCH, 'x')
 
 UUID = '0' + EPOCHMILLI + '-'
 
-insert(UUID, '-', 8)
-UUID = OUTPUT + '7'
+UUID = insert(UUID, '-', 8) + '7'
 
-ADD = os.urandom(2).hex()[:-1]
+ADD = secrets.token_hex(2)[:3]
 UUID = UUID + ADD + '-'
 
-ADD = os.urandom(2).hex()
+UUID = UUID + format(random.randint(8, 11), 'x')
+
+ADD = secrets.token_hex(2)[:3]
 UUID = UUID + ADD + '-'
 
-ADD = os.urandom(6).hex()
+ADD = secrets.token_hex(6)
 UUID = UUID + ADD
 
 os.system(f"echo 'uuid={UUID}' >> $GITHUB_OUTPUT")
